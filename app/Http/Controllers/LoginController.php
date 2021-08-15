@@ -26,7 +26,7 @@ class LoginController extends Controller
         }
 
         $data = [
-            'username'     => $request->input('username'),
+            'username'  => $request->input('username'),
             'password'  => $request->input('password'),
         ];
 
@@ -39,6 +39,6 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect();
+        return redirect('/');
     }
 }

@@ -4,15 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+use App\Models\Poll;
+use App\Models\Vote;
 
-class Division extends Model
+class Choice extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
 
-    public function user() {
-        return $this->hasMany(User::class);
+    protected $fillable = ['choice', 'poll_id'];
+
+    public function poll() {
+        return $this->belongsTo(Poll::class);
     }
 
     public function votes() {
